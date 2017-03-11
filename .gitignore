@@ -31,3 +31,4 @@ parent.iml
 Thumbs.db
 /wfespa/.editorconfig
 /wfeservices/target
+/ops-local/wfeservices/wfeservices.jar
