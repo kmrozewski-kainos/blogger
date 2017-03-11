@@ -27,7 +27,7 @@ fi
 docker-compose up -d --build db
 docker-compose up --build dockerize-wait-for-db
 
-#mvn clean install -f ../db-migrations/pom.xml -D liquibase.properties=${PWD}/db/liquibase.properties
+mvn clean install -f ../db-migrations/pom.xml -D liquibase.properties=${PWD}/db/liquibase.properties
 
 # wfeservices
 mvn clean package -DskipTests -f ../pom.xml

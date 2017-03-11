@@ -6,3 +6,9 @@
 
 ### Start local environment
 In `ops-local` folder run script `start-local-environment.sh`
+
+### Run database with liquibase migrations
+In `ops-local` folder run script `start-db.sh`
+
+### Clean up dockers
+In `ops-local` folder run script `cleanup-dockers.sh`
