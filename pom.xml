@@ -13,5 +13,6 @@
     <modules>
         <module>wfeservices</module>
         <module>db-migrations</module>
+        <module>persistence</module>
     </modules>
 </project>
