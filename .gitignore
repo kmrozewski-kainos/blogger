@@ -29,3 +29,5 @@ parent.iml
 #System Files
 .DS_Store
 Thumbs.db
+/wfespa/.editorconfig
+/wfeservices/target
