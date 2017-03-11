@@ -1,4 +1,5 @@
 import configuration.BloggerAppConfiguration;
+import configuration.BloggerModule;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -13,9 +14,12 @@ public class BloggerApp extends Application<BloggerAppConfiguration> {
 
 	private GuiceBundle<BloggerAppConfiguration> guiceBundle;
 
+	private BloggerModule bloggerModule = new BloggerModule();
+
 	@Override
 	public void initialize(Bootstrap<BloggerAppConfiguration> bootstrap) {
 		guiceBundle = GuiceBundle.<BloggerAppConfiguration>builder()
+				.modules(bloggerModule)
 				.enableAutoConfig("main") // autoscan
 				.searchCommands()
 				.build();
@@ -28,8 +32,12 @@ public class BloggerApp extends Application<BloggerAppConfiguration> {
 		enableCors(environment);
 	}
 
-	public static void main(String[] args) throws Exception {
-		new BloggerApp().run(args);
+	public static void main(String[] args) {
+		try {
+			new BloggerApp().run(args);
+		} catch (Exception e) {
+			throw new RuntimeException("Application failed!", e);
+		}
 	}
 
 	private void enableCors(Environment environment) {
