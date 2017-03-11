@@ -1,8 +1,8 @@
 database:
   driverClass: org.postgresql.Driver
-  user: awspostgres
-  password: postgresAWS123
-  url: jdbc:postgresql://awsbp-db:5432/offers
+  user: postgres
+  password: postgres123
+  url: jdbc:postgresql://db:5432/blog
   properties:
     charSet: UTF-8
     hibernate.dialect: com.kainos.poc.amazon.persistence.dao.hibernate.dialect.JsonPostgreSQLDialect
