@@ -1,0 +1,31 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# IntelliJ project files
+.idea
+*.iml
+.idea/
+parent.iml
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/wfespa/node_modules
+
+# IDE - VSCode
+/wfespa/.vscode/*
+/wfespa/!.vscode/settings.json
+/wfespa/!.vscode/tasks.json
+/wfespa/!.vscode/launch.json
+/wfespa/!.vscode/extensions.json
+
+# e2e
+/wfespa/e2e/*.js
+/wfespa/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db
