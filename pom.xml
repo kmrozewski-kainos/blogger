@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <dropwizard.version>1.0.0</dropwizard.version>
+        <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
     </properties>
     <modules>
         <module>wfeservices</module>

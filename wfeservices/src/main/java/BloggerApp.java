@@ -1,6 +1,9 @@
 import configuration.BloggerAppConfiguration;
 import configuration.BloggerModule;
 import io.dropwizard.Application;
+import io.dropwizard.db.PooledDataSourceFactory;
+import io.dropwizard.hibernate.HibernateBundle;
+import io.dropwizard.hibernate.ScanningHibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
@@ -14,6 +17,13 @@ public class BloggerApp extends Application<BloggerAppConfiguration> {
 
 	private GuiceBundle<BloggerAppConfiguration> guiceBundle;
 
+	private final HibernateBundle<BloggerAppConfiguration> hibernateBundle = new ScanningHibernateBundle<BloggerAppConfiguration>("persistence") {
+		@Override
+		public PooledDataSourceFactory getDataSourceFactory(BloggerAppConfiguration configuration) {
+			return configuration.getDataSourceFactory();
+		}
+	};
+
 	private BloggerModule bloggerModule = new BloggerModule();
 
 	@Override
@@ -25,11 +35,13 @@ public class BloggerApp extends Application<BloggerAppConfiguration> {
 				.build();
 
 		bootstrap.addBundle(guiceBundle);
+		bootstrap.addBundle(hibernateBundle);
 	}
 
 	@Override
 	public void run(BloggerAppConfiguration configuration, Environment environment) throws Exception {
 		enableCors(environment);
+		bloggerModule.setSessionFactory(hibernateBundle.getSessionFactory());
 	}
 
 	public static void main(String[] args) {

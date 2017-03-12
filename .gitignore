@@ -33,3 +33,4 @@ Thumbs.db
 /wfeservices/target
 /ops-local/wfeservices/wfeservices.jar
 /db-migrations/target/
+/persistence/target/
